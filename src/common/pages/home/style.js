@@ -30,6 +30,7 @@ export const TopicWrapper = styled.div`
     padding: 20px 0 10px 0 ;
     overflow: hidden;
     margin-left: -18px;
+    border-bottom: 1px solid #f0f0f0;
 `
 
 export const TopicItem = styled.div`
@@ -39,7 +40,7 @@ export const TopicItem = styled.div`
     line-height: 32px;
     font-size: 14px;
     color: #000;
-    border: 1px solid #dcdcdc;
+    border: 1px solid #f0f0f0;
     border-radius: 4px;
     padding-right: 10px;
     margin-left: 18px;
@@ -54,3 +55,62 @@ export const TopicImg = styled.img.attrs({
     float:left;
     margin-right: 10px;
 `
+
+export const ListItem = styled.div`
+    padding: 20px 0;
+    border-bottom: 1px solid #f0f0f0;
+    overflow: hidden;
+    .pic {
+      display: block;
+      width: 125px;
+      height: 100px;
+      float: right;
+      border-radius: 10px;
+    }
+`
+
+export const ListInfo = styled.div`
+    width: 500px;
+    float: left;
+    .title {
+      font-size: 18px;
+      line-height: 27px;
+      font-weight: 700;
+      color: #333;
+    }
+    .desc {
+      color: #999;
+      font-size: 13px;
+      line-height: 24px;
+    }
+`
+
+export const RecommendWrapper = styled.div`
+    margin: 30px 0;
+    width: 280px;
+`
+
+export const RecommendItem = styled.div`
+    width: 280px;
+    height: 50px;
+    background: url(${(props) => props.imgUrl});
+    background-size:contain;
+`
+export const WriterWrapper = styled.div`
+    width: 278px;
+    border: 1px solid #dcdcdc;
+    border-radius: 3px;
+    text-align: center;
+    height: 300px;
+    line-height: 300px;
+`
+
+export const WriterItem = styled.div`
+    width: 278px;
+    height: 300px;
+    background: url(http://cdn2.jianshu.io/assets/ads/java-62d16127d94c8ca4c8a40ada899c97f4.png);
+    background-size: cover;
+`
+
+
+

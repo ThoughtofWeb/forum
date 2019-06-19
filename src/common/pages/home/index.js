@@ -12,10 +12,11 @@ class Home extends Component {
                 <HomeLeft>
                     <img className="banner-img"/>
                     <Topic></Topic>
-                    <Recommend></Recommend>
+                    <List></List>
                 </HomeLeft>
                 <HomeRight>
-                    <List></List>
+                    <Recommend></Recommend>
+
                     <Writer></Writer>
                 </HomeRight>
             </HomeWrapper>

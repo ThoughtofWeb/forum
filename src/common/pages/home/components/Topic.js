@@ -7,14 +7,14 @@ class Topic extends Component {
         return (
             <TopicWrapper>
                 {
-                    this.props.list.map((item) =>
-                        (
+                    this.props.list.map((item)=>{
+                        return(
                             <TopicItem key={item.get('id')}>
-                                <TopicImg className="topic-pic" imgUrl={item.get('imgUrl')}/>
+                                <TopicImg className="topic-pic" imgUrl={item.get('imgUrl')} alt=""/>
                                 {item.get('title')}
                             </TopicItem>
                         )
-                    )
+                    })
                 }
 
 
@@ -23,7 +23,7 @@ class Topic extends Component {
     }
 }
 
-const mapState = (state) => ({
-    list: state.home.get('topicList')
+const mapState=(state)=>({
+    list:state.home.get('topicList')
 })
-export default connect(mapState, null)(Topic);
+export default connect(mapState,null)(Topic);
