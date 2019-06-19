@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 class Recommend extends Component {
     render() {
         const {list} = this.props;
-        console.log(list);
         return (
             <RecommendWrapper>
                 {
@@ -21,6 +20,6 @@ class Recommend extends Component {
 }
 
 const mapState = (state) => ({
-    list: state.home.get('recommendList')
+    list:state.getIn(['home', 'recommendList'])
 })
 export default connect(mapState, null)(Recommend);

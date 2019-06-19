@@ -105,11 +105,11 @@ export const WriterWrapper = styled.div`
     line-height: 300px;
 `
 
-export const WriterItem = styled.div`
+export const WriterItem = styled.img.attrs({
+    src: 'http://cdn2.jianshu.io/assets/ads/java-62d16127d94c8ca4c8a40ada899c97f4.png'
+})`
     width: 278px;
     height: 300px;
-    background: url(http://cdn2.jianshu.io/assets/ads/java-62d16127d94c8ca4c8a40ada899c97f4.png);
-    background-size: cover;
 `
 
 
