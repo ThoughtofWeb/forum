@@ -40,8 +40,8 @@ class Header extends Component {
                     <SearchInfoTitle>
                         热门搜索
                         <SearchInfoSwitch
-                        onClick={() => this.props.handleChangePage(page, totalPage)}>
-                            <i className="iconfont spin">&#xe851;</i>
+                        onClick={ ()=>this.props.handleChangePage(page, totalPage,this.spinIcon)}>
+                            <i ref={(icon)=> this.spinIcon=icon} className="iconfont spin">&#xe851;</i>
                             换一批
                         </SearchInfoSwitch>
                     </SearchInfoTitle>
@@ -57,7 +57,7 @@ class Header extends Component {
     }
 
     render() {
-        const {focused} = this.props;
+        const {focused,headerList} = this.props;
         return (
             <HeaderWrapper>
                 <Logo href="/"/>
@@ -70,7 +70,7 @@ class Header extends Component {
                     </NavItem>
                     <SearchWrapper>
                         <CSSTransition in={focused} timeout={200} classNames="slide">
-                            <NavSearch onFocus={this.props.handleInputFocus}
+                            <NavSearch onFocus={()=>this.props.handleInputFocus(headerList)}
                                        onBlur={this.props.handleInputBlur}
                                        className={focused ? 'focused' : ''}></NavSearch>
                         </CSSTransition>
@@ -104,8 +104,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleInputFocus() {
-            dispatch(actionCreators.getList())
+        handleInputFocus(headerList) {
+            headerList.size==0&&dispatch(actionCreators.getList())
+            
             dispatch(actionCreators.searchFocus())
         },
         handleInputBlur() {
@@ -117,7 +118,16 @@ const mapDispatchToProps = (dispatch) => {
         handleMouseLeave() {
             dispatch(actionCreators.mouseLeave())
         },
-        handleChangePage(page, totalPage) {
+        handleChangePage(page, totalPage,spinIcon) {
+            console.log(spinIcon.style.transform)
+            let angel=spinIcon.style.transform.replace(/[^0-9]/ig,"");
+            // console.log(angel)
+            if(angel){
+angel=parseInt(angel,10)+360;
+            }else{
+                angel=360;
+            }
+spinIcon.style.transform='rotate('+angel+'deg)';
             if (page < totalPage) {
                 dispatch(actionCreators.changePage(page+1))
             } else {
