@@ -15,6 +15,8 @@ export default (state = defaultState, action) => {
             articleList: fromJS(action.articleList),
             recommendList: fromJS(action.recommendList)
         })
+        case constants.ARTICLE_LIST:
+        return state
         default:
             return state
     }

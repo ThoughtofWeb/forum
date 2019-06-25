@@ -94,6 +94,7 @@ export const LoadMore = styled.div`
     background-color:#a5a5a5;
     text-align: center;
     margin: 30px 0 ;
+    cursor:pointer;
 `
 
 export const RecommendWrapper = styled.div`

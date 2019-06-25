@@ -16,3 +16,17 @@ export const changeList = () => {
         })
     }
 }
+
+const articleList = (result) => ({
+    type: constants.ARTICLE_LIST,
+    articleList: result.articleList,
+})
+
+export const getMoreData=()=>{
+    return (dispatch) => {
+        axios.get('/api/homeList.json').then((data) => {
+            const result = data.data.data;
+            dispatch(articleList(result))
+        })
+    }
+}
